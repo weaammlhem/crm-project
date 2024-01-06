@@ -19,7 +19,7 @@ class AuthController extends BaseController
             'password' => ['required', 'min:8'],
         ]);
         if ($validator->fails()) {
-            return $this->sendError('', $validator->errors());
+            return $this->sendError('Please Validate Data', $validator->errors(),422);
         }
 
         $user = User::where('email','=',$request->email)->first();
